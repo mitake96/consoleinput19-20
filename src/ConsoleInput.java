@@ -599,4 +599,46 @@ public class ConsoleInput {
 		}while(result>=upperBound || result<lowerBound);
 		return result;		
 	}
+
+	public char readChar() {
+		String cadena;
+		char letra;
+		System.out.println("Introduce un carácter: ");
+		do {
+			cadena=keyboard.nextLine();
+			if (cadena.length()!=1 ){
+				System.out.println("Introduce un carácter válido ");
+			}
+		}while(cadena.length()!=1);
+		letra = cadena.charAt(0);
+		
+		return letra;
+	}
+
+	public char readChar(String validCharacters) {
+		char letra;
+		int count=0;
+		boolean condition=true;
+		do {
+			count=0;
+			letra=readChar();
+			do {
+				if (letra==validCharacters.charAt(count) ){
+				condition=false;
+				}
+				count++;
+				}while(condition && count < validCharacters.length());
+			if (condition) {
+				System.out.println("El caracter introducido no coincide con los caracteres validos "+validCharacters+" vuelva a introducirlo: ");
+			}
+			}while(condition); 
+		return letra;
+		
+		
+	}
+
+
+
+
+
 }
