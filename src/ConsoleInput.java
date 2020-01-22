@@ -615,7 +615,7 @@ public class ConsoleInput {
 		return letra;
 	}
 
-	public char readChar(String validCharacters) {
+	public char readChar(String validCharacters) { /*<-------------------*/
 		char letra;
 		int count=0;
 		boolean condition=true;
@@ -637,8 +637,131 @@ public class ConsoleInput {
 		
 	}
 
+	public char readVowel() {
+		String cadena;
+		char c;
+		boolean cond1 = false, cond2;
 
+		System.out.println("Introduce una sola vocal");
+		
+		do {
+			cond1 = true;
 
+			do {
+				cond2 = true;
+				cadena = this.keyboard.nextLine();
+				if (cadena.length() != 1) {
+					System.out.println("Error, has introducido más de un caracter");
+					cond2 = false;
+				}
+			} while (!cond2);
 
+			c = Character.toLowerCase(cadena.charAt(0));
+
+			if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+				System.out.println("Introduce una sola vocal");
+				cond1 = false;
+				cleanInput(); 
+			}
+
+		} while (!cond1);
+
+		return c;
+	}
+
+	public char readDigit() {
+		String cadena;
+		char letra;
+		boolean cond1 = false, cond2;
+
+		System.out.println("Introduce un solo digito");
+		
+		do {
+			cond1 = true;
+			
+			do {
+				cond2 = true;
+				cadena = this.keyboard.nextLine();
+				if (cadena.length() != 1) {
+					System.out.println("Introduce un solo digito");
+					cond2 = false;
+				}
+			} while (!cond2);
+
+			letra = cadena.charAt(0);
+
+			if (letra <= 48 || letra >= 57) {	//codigos unicode desde el 0 hasta el 9
+				System.out.println("Introduce un solo digito");
+				cond1 = false;
+				cleanInput();
+			}
+
+		} while (!cond1);
+
+		return letra;
+	}
+
+	public char readLowerCase() {
+		String cadena;
+		char letra;
+		boolean cond1 = false, cond2;
+
+		System.out.println("Introduce un solo digito");
+		
+		do {
+			cond1 = true;
+			
+			do {
+				cond2 = true;
+				cadena = this.keyboard.nextLine();
+				if (cadena.length() != 1) {
+					System.out.println("Introduce un solo caracter");
+					cond2 = false;
+				}
+			} while (!cond2);
+
+			letra = Character.toLowerCase(cadena.charAt(0));
+
+			
+			if (letra < 97 || letra > 122) {	//Caracteres de la a a la z en unicode
+				System.out.println("Introduce un caracter valido");
+				cond1 = false;
+			}
+		} while (!cond1);
+
+		return letra;
+	}
+
+	public char readUpperCase() {
+		String cadena;
+		char letra;
+		boolean cond1 = false, cond2;
+
+		System.out.println("Introduce un solo digito");
+		
+		do {
+			cond1 = true;
+			
+			do {
+				cond2 = true;
+				cadena = this.keyboard.nextLine();
+				if (cadena.length() != 1) {
+					System.out.println("Introduce un solo caracter");
+					cond2 = false;
+				}
+			} while (!cond2);
+
+			letra = Character.toLowerCase(cadena.charAt(0));
+
+			
+			if (letra < 65 || letra > 90) {	//Caracteres de la A la Z en unicode
+				System.out.println("Introduce un caracter valido");
+				cond1 = false;
+			}
+		} while (!cond1);
+
+		return letra;
+	}
+	
 
 }
