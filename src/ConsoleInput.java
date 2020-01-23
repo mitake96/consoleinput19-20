@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class ConsoleInput {
 	
+	
 	private final Scanner keyboard;
 	public ConsoleInput(Scanner keyboard) {
 	this.keyboard = keyboard;
@@ -651,7 +652,7 @@ public class ConsoleInput {
 				cond2 = true;
 				cadena = this.keyboard.nextLine();
 				if (cadena.length() != 1) {
-					System.out.println("Error, has introducido más de un caracter");
+					System.out.println("Error, has introducido mï¿½s de un caracter");
 					cond2 = false;
 				}
 			} while (!cond2);
@@ -700,7 +701,7 @@ public class ConsoleInput {
 
 		return letra;
 	}
-
+ 
 	public char readLowerCase() {
 		String cadena;
 		char letra;
@@ -763,5 +764,72 @@ public class ConsoleInput {
 		return letra;
 	}
 	
+	public String readString() {
+		String cad;
+		System.out.println("Introduce una cadena");
+		cad=keyboard.nextLine();
+		return cad;
+	}
+
+	public String readString(int maxLength) {
+		String cad;
+		System.out.println("Introduce una cadena de " + maxLength + "caracteres");
+		do{
+			cad=keyboard.nextLine();
+			if (maxLength<cad.length()) {
+				System.out.println("Introduce una cadena de " + maxLength + "caracteres");
+			}
+		}while(maxLength<cad.length());
+		return cad;
+	}
+	
+	public boolean readBooleanUsingChar(char affirmativeValue) {
+		boolean result=false;
+		System.out.println("Introduzca "+ affirmativeValue+ "para indicar verdadero u otro caracter para indicar falso");
+		do {
+			if (Character.toLowerCase(affirmativeValue) == Character.toLowerCase(readChar())) {
+				result = true;
+			}
+
+			else if (Character.toUpperCase(affirmativeValue) == Character.toUpperCase(readChar())) {
+				result = true;
+			} 
+		} while (result == false);
+		return result;
+	}
+	
+	public boolean readBooleanUsingChar()  { // <------- y el anterior
+		System.out.println("Introduzca s o S para indicar verdadero u otro caracter para indicar falso");
+		boolean result=false;
+		do {
+			if (Character.toLowerCase(readChar()) == 's') {
+				result = true;
+			} else if (Character.toUpperCase(readChar()) == 's') {
+				result = true;
+			} 
+		} while (result==false);
+		return result;
+	}
+	
+	public boolean readBooleanUsingInt(int affirmativeValue) {
+		boolean result=false;
+		System.out.println("Introduce " + affirmativeValue + "para confirmar");
+		if(affirmativeValue==keyboard.nextInt()) {
+			result=true;
+		}
+		return result;
+	}
+	
+	public boolean readBooleanUsintInt() {
+		boolean result=false;
+		int x = 1;
+		System.out.println("Introduce " + x + "para confirmar");
+		
+		if(keyboard.nextInt()==x) {
+			result=true;
+		}
+			
+		return result;
+	}
 
 }
