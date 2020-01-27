@@ -1,3 +1,4 @@
+package consoleinput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -616,7 +617,7 @@ public class ConsoleInput {
 		return letra;
 	}
 
-	public char readChar(String validCharacters) { /*<-------------------*/
+	public char readChar(String validCharacters) { 
 		char letra;
 		int count=0;
 		boolean condition=true;
@@ -786,28 +787,32 @@ public class ConsoleInput {
 	public boolean readBooleanUsingChar(char affirmativeValue) {
 		boolean result=false;
 		System.out.println("Introduzca "+ affirmativeValue+ "para indicar verdadero u otro caracter para indicar falso");
-		do {
+
 			if (Character.toLowerCase(affirmativeValue) == Character.toLowerCase(readChar())) {
 				result = true;
+				System.out.println("Verdadero");
+			}
+			
+			else {
+				System.out.println("Falso");
 			}
 
-			else if (Character.toUpperCase(affirmativeValue) == Character.toUpperCase(readChar())) {
-				result = true;
-			} 
-		} while (result == false);
 		return result;
 	}
 	
-	public boolean readBooleanUsingChar()  { // <------- y el anterior
+	public boolean readBooleanUsingChar()  { 
 		System.out.println("Introduzca s o S para indicar verdadero u otro caracter para indicar falso");
 		boolean result=false;
-		do {
+
 			if (Character.toLowerCase(readChar()) == 's') {
 				result = true;
-			} else if (Character.toUpperCase(readChar()) == 's') {
-				result = true;
+				System.out.println("Verdadero");
 			} 
-		} while (result==false);
+			
+			else {
+				System.out.println("Falso");
+			}
+
 		return result;
 	}
 	
