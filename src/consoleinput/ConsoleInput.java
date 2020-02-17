@@ -605,7 +605,6 @@ public class ConsoleInput {
 	public char readChar() {
 		String cadena;
 		char letra;
-		System.out.println("Introduce un carácter: ");
 		do {
 			cadena=keyboard.nextLine();
 			if (cadena.length()!=1 ){
@@ -617,7 +616,7 @@ public class ConsoleInput {
 		return letra;
 	}
 
-	public char readChar(String validCharacters) { 
+	public char readChar(String validCharacters) { //introduce un solo caracter
 		char letra;
 		int count=0;
 		boolean condition=true;
@@ -639,12 +638,12 @@ public class ConsoleInput {
 		
 	}
 
-	public char readVowel() {
+	public char readVowel() {		//introduce una sola vocal
 		String cadena;
 		char c;
 		boolean cond1 = false, cond2;
 
-		System.out.println("Introduce una sola vocal");
+
 		
 		do {
 			cond1 = true;
@@ -671,12 +670,12 @@ public class ConsoleInput {
 		return c;
 	}
 
-	public char readDigit() {
+	public char readDigit() {	//introduce un solo digito
 		String cadena;
 		char letra;
 		boolean cond1 = false, cond2;
 
-		System.out.println("Introduce un solo digito");
+
 		
 		do {
 			cond1 = true;
@@ -693,7 +692,6 @@ public class ConsoleInput {
 			letra = cadena.charAt(0);
 
 			if (letra <= 48 || letra >= 57) {	//codigos unicode desde el 0 hasta el 9
-				System.out.println("Introduce un solo digito");
 				cond1 = false;
 				cleanInput();
 			}
@@ -765,9 +763,8 @@ public class ConsoleInput {
 		return letra;
 	}
 	
-	public String readString() {
+	public String readString() {	//introduce una cadena
 		String cad;
-		System.out.println("Introduce una cadena");
 		cad=keyboard.nextLine();
 		return cad;
 	}
